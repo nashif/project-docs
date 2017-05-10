@@ -41,7 +41,7 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst']
 
 # The master toctree document.
 master_doc = 'index'
@@ -78,13 +78,44 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+rst_epilog = """
+.. |codename| replace:: Zephyr Kernel
+.. |project| replace:: Zephyr Project
+.. |copy|   unicode:: U+000A9 .. COPYRIGHT SIGN
+   :ltrim:
+.. |trade|  unicode:: U+02122 .. TRADEMARK SIGN
+   :ltrim:
+.. |reg|    unicode:: U+000AE .. REGISTERED TRADEMARK SIGN
+   :ltrim:
+.. |deg|    unicode:: U+000B0 .. DEGREE SIGN
+   :ltrim:
+.. |plusminus|  unicode:: U+000B1 .. PLUS-MINUS SIGN
+   :trim:
+.. |micro|  unicode:: U+000B5 .. MICRO SIGN
+   :trim:
+"""
+
 
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+
+try:
+    import sphinx_rtd_theme
+except ImportError:
+    html_theme = 'zephyr'
+    html_theme_path = ['./themes']
+else:
+    html_theme = "sphinx_rtd_theme"
+    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
+if tags.has('daily') or tags.has('release'):
+    html_theme = 'zephyr-docs-theme'
+    html_theme_path = ['./themes']
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -95,7 +126,7 @@ html_theme = 'alabaster'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['static']
 
 
 # -- Options for HTMLHelp output ------------------------------------------

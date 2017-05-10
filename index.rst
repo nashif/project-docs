@@ -1,21 +1,29 @@
-.. Zephyr Project Documentation documentation master file, created by
-   sphinx-quickstart on Wed May  3 18:37:45 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. _zephyr-project-docs:
 
 Welcome to Zephyr Project Documentation
-========================================================
+#######################################
+
+
+The Zephyr |trade| Project is a scalable real-time operating system (RTOS)
+supporting multiple hardware architectures, optimized for resource constrained
+devices, and built with security in mind.
+
+The majority of Zephyr Kernel-specific documentation is published at
+https://zephyrproject.org/doc.
+
+The content you're reading here is additional non-Kernel related material
+about the Zephyr project that is part of the moderated and
+reviewed project documentation.
+
+We also maintain a `wiki on GitHub`_ for informal contributions and
+collaboration.
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :glob:
 
-   security_overview/security_overview.rst
+   security/*
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. _wiki on GitHub: https://github.com/zephyrproject-rtos/zephyr/wiki
