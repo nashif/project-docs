@@ -1,7 +1,7 @@
 .. _zephyr-project-docs:
 
-Welcome to Zephyr Project Documentation
-#######################################
+Zephyr Project Documentation
+############################
 
 
 The Zephyr |trade| Project is a scalable real-time operating system (RTOS)
@@ -11,8 +11,8 @@ devices, and built with security in mind.
 The majority of Zephyr Kernel-specific documentation is published at
 https://zephyrproject.org/doc.
 
-The content you're reading here is additional non-Kernel related material
-about the Zephyr project that is part of the moderated and
+The content you're reading here is additional non-Kernel related documents
+about the Zephyr project itself that are part of the moderated and
 reviewed project documentation.
 
 We also maintain a `wiki on GitHub`_ for informal contributions and
