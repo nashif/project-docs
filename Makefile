@@ -8,8 +8,8 @@ SPHINXPROJ    = ZephyrProjectDocumentation
 SOURCEDIR     = .
 BUILDDIR      = _build
 
-DOC_TAG       ?= development
-#DOC_TAG       ?= daily
+#DOC_TAG       ?= development
+DOC_TAG       ?= daily
 
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(SPHINXOPTS) .
 
