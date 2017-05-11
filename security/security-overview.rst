@@ -177,7 +177,7 @@ The current coding guidelines focus mostly on coding styles and
 conventions. Functional correctness is ensured by the build system and
 the experience of the reviewer. Especially for security relevant code,
 concrete and detailed guidelines need to be developed and aligned with
-the developers (see: `secure coding guidelines`_).
+the developers (see: :ref:`secure code`).
 
 Static code analyses are run on the Zephyr code tree on a regular basis
 using the open source Coverity Scan tool. Coverity Scan now includes
@@ -268,16 +268,16 @@ important submodules. For each of the modules, a dedicated architecture
 document shall be created and evaluated against the implementation.
 These documents shall serve as an entry point to new developers and as a
 basis for the security architecture. Please refer to the
-`Zephyr Kernel subsystem documentation`_ for
-detailed information about each subsystem.
+:ref:`Zephyr Kernel subsystem documentation <subsystems>` for
+detailed information.
 
 Secure Coding Guidelines
 ========================
 
 Designing an open software system such as Zephyr to be secure requires
 adhering to a defined set of design standards. These standards are
-included in the Zephyr Project documentation, specifically in the
-`secure coding guidelines`_. In [SALT75]_, the following, widely
+included in the Zephyr Project documentation, specifically in its
+:ref:`secure code` section. In [SALT75]_, the following, widely
 accepted principles for protection mechanisms are defined to prevent
 security violations and limit their impact:
 
