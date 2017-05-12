@@ -1,0 +1,41 @@
+language: c
+
+compiler: gcc
+
+env:
+    global:
+        - USE_CCACHE=1
+
+build:
+    cache: true
+
+    ci:
+      - sudo apt-get install doxygen make
+      - sudo pip install breathe sphinx awscli sphinx_rtd_theme
+      - make html
+    post_ci:
+      - aws s3 sync _build/html/* s3://docs.zephyrproject.org/
+
+integrations:
+  notifications:
+    - integrationName: slack_integration
+      type: slack
+      recipients:
+        - "#ci"
+      branches:
+        only:
+          - master
+      on_success: never
+      on_failure: always
+    - integrationName: email
+      type: email
+      recipients:
+        - builds@zephyrproject.org
+      branches:
+        only:
+          - master
+          - net
+          - bluetooth
+          - arm
+      on_success: never
+      on_failure: never
