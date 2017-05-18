@@ -31,6 +31,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.intersphinx',
+    'sphinx.ext.extlinks',
     'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages']
 
@@ -128,6 +129,10 @@ if tags.has('daily') or tags.has('release'):
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['static']
 
+# docs_title is breadcrumb title for docs
+#html_context = {
+#    'docs_title': 'Docs (' + version + ')',
+#}
 
 # -- Options for HTMLHelp output ------------------------------------------
 
@@ -159,7 +164,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ZephyrProjectDocumentation.tex', u'Zephyr Project Documentation Documentation',
+    (master_doc, 'ZephyrProjectDocumentation.tex', u'Zephyr Project Documentation',
      u'Zephyr Project', 'manual'),
 ]
 
@@ -169,7 +174,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'zephyrprojectdocumentation', u'Zephyr Project Documentation Documentation',
+    (master_doc, 'zephyrprojectdocumentation', u'Zephyr Project Documentation',
      [author], 1)
 ]
 
@@ -180,15 +185,32 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ZephyrProjectDocumentation', u'Zephyr Project Documentation Documentation',
+    (master_doc, 'ZephyrProjectDocumentation', u'Zephyr Project Documentation',
      author, 'ZephyrProjectDocumentation', 'One line description of project.',
      'Miscellaneous'),
 ]
 
+# for linking to jira items use :jira:`ZEP-1234`
+extlinks = {'jira': ('https://jira.zephyrproject.org/browse/%s', '')}
+
+# some configuration for linkcheck builder
+#   noticed that we're getting false-positive link errors on JIRA, I suspect
+#   because it's taking too long for the server to respond so bump up the
+#   timeout (default=5) and turn off anchor checks (so only a HEAD request is
+#   done - much faster) Leave the ignore commented in case we want to remove
+#   jira link checks later...
+
+linkcheck_timeout = 30
+linkcheck_workers = 10
+# linkcheck_ignore = [r'https://jira\.zephyrproject\.org/']
+linkcheck_anchors = False
+
+# some custom css tweaks for all themes
+def setup(app):
+   app.add_stylesheet("zephyr-custom.css")
 
 
-
-# Example configuration for intersphinx: refer to the Python standard library.
+# intersphinx connection to the zephyr kernel docs
 intersphinx_mapping = {
-   'ZephyrKernel': ('http://zephyrproject.org/doc', None),
+   'ZephyrKernel': ('https://zephyrproject.org/doc', None),
    }

@@ -20,10 +20,10 @@ collaboration.
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
    :glob:
 
-   security/*
+   security/security.rst
 
 .. _wiki on GitHub: https://github.com/zephyrproject-rtos/zephyr/wiki

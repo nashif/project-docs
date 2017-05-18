@@ -11,7 +11,7 @@ BUILDDIR      = _build
 #DOC_TAG       ?= development
 DOC_TAG       ?= daily
 
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(SPHINXOPTS) .
+ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(SPHINXOPTS) $(SOURCEDIR)
 
 
 # Put it first so that "make" without argument is like "make help".
