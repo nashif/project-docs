@@ -12,9 +12,9 @@ build:
     ci:
       - sudo apt-get install doxygen make
       - sudo pip install breathe sphinx awscli sphinx_rtd_theme
+      - rm -rf themes/zephyr-docs-theme
+      - git clone https://github.com/zephyrproject-rtos/docs-theme.git themes/zephyr-docs-theme
       - make html
-    post_ci:
-      - aws s3 sync _build/html/* s3://docs.zephyrproject.org/
 
 integrations:
   notifications:
