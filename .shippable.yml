@@ -9,9 +9,12 @@ env:
 build:
     cache: true
 
+    pre_ci_boot:
+        image_name: nashif/zephyr
+        image_tag: master.6
+        pull: true
+        options: "-e HOME=/home/buildslave --privileged=true --tty --net=bridge --user buildslave"
     ci:
-      - sudo apt-get install doxygen make
-      - sudo pip install breathe sphinx awscli sphinx_rtd_theme
       - rm -rf themes/zephyr-docs-theme
       - git clone https://github.com/zephyrproject-rtos/docs-theme.git themes/zephyr-docs-theme
       - make html
